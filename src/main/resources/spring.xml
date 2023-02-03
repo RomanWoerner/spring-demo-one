@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="myLoggerConfig" class="luv2code.MyLoggerConfig" init-method="initLogger">
+	<property name="rootLoggerLevel" value="FINE" />
+	<property name="printedLoggerLevel" value="FINE"/>
+	</bean>
+
+	<bean id="myFortuneService"
+		  class="luv2code.HappyFortuneService"/>
+
+	<bean id="Coach" class="luv2code.BoxingCoach">
+	<!--Constructor Injection-->
+	<constructor-arg ref="myFortuneService"></constructor-arg>
+	</bean>
+
+	<bean id="myCricketCoach" class="luv2code.CricketCoach">
+		<!--Setup setter injection-->
+
+		<property name="fortuneService" ref="myFortuneService"/>
+		<property name="emailAdress" value="thebestcoach@luv2code.com"/>
+		<property name="team" value="nicks"></property>
+	</bean>
+</beans>
