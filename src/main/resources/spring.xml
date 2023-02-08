@@ -12,7 +12,7 @@
 	<property name="printedLoggerLevel" value="FINE"/>
 	</bean>
 	<!-- Define the location of the properties file.-->
-<context:property-placeholder location="classpath:src/main/resources/sport.properties"/>
+<context:property-placeholder location="classpath:sport.properties"/>
 	<bean id="myFortuneService"
 		  class="luv2code.HappyFortuneService"/>
 
